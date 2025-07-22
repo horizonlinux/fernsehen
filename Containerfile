@@ -51,6 +51,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
         dnf5 -y install $fernsehen -x aurora-logos; \
     done && unset -v fernsehen && \
     for debloat in \
+        firefox \
         htop \
         nvtop; \
     do \
