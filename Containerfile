@@ -33,6 +33,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
         dnf5 -y config-manager setopt copr:copr.fedorainfracloud.org:${copr////:}.priority=98 ;\
     done && unset -v copr && \
     for fernsehen in \
+        dbus \
         generic-logos \
         plasma-bigscreen-6.4.80-1horizon \
         plasma-bigscreen-wayland-6.4.80-1horizon \
