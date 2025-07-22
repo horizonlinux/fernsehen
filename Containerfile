@@ -34,6 +34,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     done && unset -v copr && \
     for fernsehen in \
         dbus \
+        dbus-daemon \
         generic-logos \
         plasma-bigscreen-6.4.80-1horizon \
         plasma-bigscreen-wayland-6.4.80-1horizon \
@@ -43,6 +44,12 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     do \
         dnf5 -y install $fernsehen -x aurora-logos; \
     done && unset -v fernsehen && \
+    for debloat in \
+        htop \
+        nvtop; \
+    do \
+        dnf5 -y remove $debloat; \
+    done && unset -v debloat && \
     systemctl set-default graphical.target && \
     systemctl enable sddm && \
     /ctx/build.sh && \
