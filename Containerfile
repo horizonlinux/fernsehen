@@ -42,8 +42,8 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     do \
         dnf5 -y install $fernsehen -x aurora-logos; \
     done && unset -v fernsehen && \
-    systemctl set-default graphical.target
-    systemctl enable sddm
+    systemctl set-default graphical.target && \
+    systemctl enable sddm && \
     /ctx/build.sh && \
     ostree container commit
     
