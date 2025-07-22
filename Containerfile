@@ -33,13 +33,14 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
         dnf5 -y config-manager setopt copr:copr.fedorainfracloud.org:${copr////:}.priority=98 ;\
     done && unset -v copr && \
     for fernsehen in \
+        generic-logos \
         plasma-bigscreen-6.4.80-1horizon \
         plasma-bigscreen-wayland-6.4.80-1horizon \
         konsole \
         sddm \
         angelfish; \
     do \
-        dnf5 -y install $fernsehen; \
+        dnf5 -y install $fernsehen -x aurora-logos; \
     done && unset -v fernsehen && \
     systemctl set-default graphical.target
     systemctl enable sddm
