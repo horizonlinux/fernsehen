@@ -40,6 +40,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
         plasma-bigscreen-wayland-6.4.80-1horizon \
         kde-connect \
         kde-connect-libs \
+        plasma-nm* \
         konsole \
         sddm \
         angelfish; \
