@@ -41,6 +41,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
         kde-connect \
         kde-connect-libs \
         plasma-nm* \
+        plasma-nano \
         konsole \
         sddm \
         angelfish; \
