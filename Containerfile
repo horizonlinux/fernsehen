@@ -26,7 +26,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     for copr in \
         ublue-os/staging \
         ublue-os/packages \
-        horizonproject\fernsehen; \
+        horizonproject/fernsehen; \
     do \
         echo "Enabling copr: $copr"; \
         dnf5 -y copr enable $copr; \
