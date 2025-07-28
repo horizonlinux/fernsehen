@@ -60,6 +60,25 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     systemctl set-default graphical.target && \
     systemctl enable sddm && \
     ln -s ../run /var/run && \
+    bash -c 'cat > /usr/lib/sysusers.d/networkmanager-vpn.conf << EOF
+    u nm-openconnect - "NetworkManager user for OpenConnect"
+    g nm-openconnect -
+    u nm-openvpn - "NetworkManager user for OpenVPN"
+    g nm-openvpn -
+    u nm-fortisslvpn - "NetworkManager user for FortiSSLVPN"
+    g nm-fortisslvpn -
+    u sstpc - "NetworkManager user for SSTP"
+    g sstpc -
+    EOF' && \
+    bash -c 'cat > /usr/lib/tmpfiles.d/custom-networkmanager-vpn.conf << EOF
+    d /run/pptp 0750 root root -
+    d /var/lib/AccountsService 0775 root root -
+    d /var/lib/AccountsService/icons 0775 root root -
+    d /var/lib/AccountsService/users 0700 root root -
+    d /var/lib/NetworkManager-fortisslvpn 0700 root root -
+    EOF' && \
+    systemd-tmpfiles --create && \
+    systemd-sysusers && \
     /ctx/build.sh && \
     ostree container commit
     
