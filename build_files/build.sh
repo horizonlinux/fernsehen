@@ -59,6 +59,10 @@ d /run/pptp 0750 root root - -
 d /var/lib/tpm2-tss/system 0755 root root - -
 d /var/lib/tuned 0755 root root - -
 d /var/usrlocal/bin 0755 root root - -
+d /run/pptp 0750 root root - -
+d /var/usrlocal/etc 0755 root root - -
+d /var/usrlocal/games 0755 root root - -
+d /var/usrlocal/include 0755 root root - -
 EOF'
 systemd-tmpfiles --create
 systemd-sysusers
