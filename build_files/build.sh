@@ -46,16 +46,19 @@ d /run/pptp 0750 root root -
 d /var/lib/containers 0755 root root -
 d /var/lib/dnf 0755 root root -
 d /var/lib/dnf/repos 0755 root root -
-L+ /run/run - - - - ../run
+L /run/run - - - - ../run
 d /run/pptp 0750 root root - -
 d /var/lib/dnf/repos/fedora-f8e7c8bda68a349e 0755 root root - -
 d /var/lib/dnf/repos/updates-79babcf8637033ce 0755 root root - -
 d /var/lib/ipsec 0700 root root - -
-L /run/run - - - - ../run
 d /run/pptp 0750 root root - -
 d /var/lib/ipsec/nss 0700 root root - -
 d /var/lib/openvpn 0770 openvpn openvpn - -
 d /var/lib/tpm2-tss 0755 root root - -
+d /run/pptp 0750 root root - -
+d /var/lib/tpm2-tss/system 0755 root root - -
+d /var/lib/tuned 0755 root root - -
+d /var/usrlocal/bin 0755 root root - -
 EOF'
 systemd-tmpfiles --create
 systemd-sysusers
