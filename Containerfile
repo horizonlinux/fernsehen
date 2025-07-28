@@ -59,6 +59,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     done && unset -v debloat && \
     systemctl set-default graphical.target && \
     systemctl enable sddm && \
+    ln -s ../run /var/run && \
     /ctx/build.sh && \
     ostree container commit
     
