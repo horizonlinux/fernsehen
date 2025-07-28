@@ -40,5 +40,12 @@ d /var/lib/AccountsService/icons 0775 root root -
 d /var/lib/AccountsService/users 0700 root root -
 d /var/lib/NetworkManager-fortisslvpn 0700 root root -
 EOF'
+bash -c 'cat > /usr/lib/tmpfiles.d/custom.conf << EOF
+L+ /run/run - - - - ../run
+d /run/pptp 0750 root root -
+d /var/lib/containers 0755 root root -
+d /var/lib/dnf 0755 root root -
+d /var/lib/dnf/repos 0755 root root -
+EOF'
 systemd-tmpfiles --create
 systemd-sysusers
