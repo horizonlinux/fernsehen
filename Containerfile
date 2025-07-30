@@ -3,7 +3,7 @@ FROM scratch AS ctx
 COPY build_files /
 
 # Base Image
-FROM ghcr.io/ublue-os/base-main:42
+FROM ghcr.io/ublue-os/kinoite-main:42
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
@@ -40,7 +40,6 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
         plasma-bigscreen-wayland-6.4.80-1horizon \
         kde-connect \
         kde-connect-libs \
-        plasma-nm* \
         plasma-nano \
         plasma-settings \
         kcm_* \
