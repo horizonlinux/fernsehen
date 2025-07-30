@@ -45,7 +45,8 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
         kcm_* \
         konsole \
         sddm \
-        angelfish; \
+        angelfish \
+        langpacks-*; \
     do \
         dnf5 -y install $fernsehen -x aurora-logos; \
     done && unset -v fernsehen && \
