@@ -46,6 +46,8 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
         konsole \
         sddm \
         angelfish \
+        kde-l10n* \
+        kde-i18n* \
         langpacks-*; \
     do \
         dnf5 -y install $fernsehen -x aurora-logos; \
