@@ -1,6 +1,7 @@
-# image-template
+# Horizon TV (Codename Fernsehen)
+Horizon TV (Fernsehen (ger. watch live TV) ) is an atomic distro made for your TV. It runs Plasma Bigscreen (with some patches).
 
-# Purpose
+# Purpose for repository
 
 This repository is meant to be a template for building your own custom [bootc](https://github.com/bootc-dev/bootc) image. This template is the recommended way to make customizations to any image published by the Universal Blue Project:
 - Products: [Aurora](https://getaurora.dev/), [Bazzite](https://bazzite.gg/), [Bluefin](https://projectbluefin.io/), [uCore](https://projectucore.io/)
