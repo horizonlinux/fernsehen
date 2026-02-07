@@ -50,9 +50,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
         nvtop; \
     do \
         dnf5 -y remove $debloat; \
-    done && unset -v debloat && \
-    systemctl set-default graphical.target && \
-    systemctl enable plasma-login-manager
+    done && unset -v debloat
     
 ### LINTING
 ## Verify final image and contents are correct.
