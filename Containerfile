@@ -23,7 +23,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
     dnf5 -y install dnf5-plugins && \
-    dnf5 -y install  \
+    dnf5 -y install --setopt=install_weak_deps=False -x discover -x firefox -x firewall-config -x kdebugsettings -x kjournald -x kinfocenter -x plasma-welcome -x plasma-drkonqi -x kde-partition manager\
         dbus \
         kwalletmanager \
         plasma-systemmonitor \
