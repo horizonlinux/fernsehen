@@ -3,7 +3,7 @@ FROM scratch AS ctx
 COPY build_files /
 
 # Base Image
-FROM ghcr.io/ublue-os/kinoite-main:42
+FROM ghcr.io/ublue-os/base-main:latest
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
@@ -26,7 +26,6 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     for copr in \
         ublue-os/staging \
         ublue-os/packages \
-        horizonproject/fernsehen; \
     do \
         echo "Enabling copr: $copr"; \
         dnf5 -y copr enable $copr; \
@@ -36,15 +35,15 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
         dbus \
         dbus-daemon \
         generic-logos \
-        plasma-bigscreen-6.4.80-1horizon \
-        plasma-bigscreen-wayland-6.4.80-1horizon \
+        plasma-bigscreen \
+        plasma-bigscreen-wayland \
         kde-connect \
         kde-connect-libs \
         plasma-nano \
         plasma-settings \
         kcm_* \
         konsole \
-        sddm \
+        plasma-login-manager \
         angelfish \
         kde-l10n* \
         kde-i18n* \
@@ -60,10 +59,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
         dnf5 -y remove $debloat; \
     done && unset -v debloat && \
     systemctl set-default graphical.target && \
-    systemctl enable sddm && \
-    ln -s ../run /var/run && \
-    /ctx/build.sh && \
-    ostree container commit
+    systemctl enable plasma-login-manager
     
 ### LINTING
 ## Verify final image and contents are correct.
