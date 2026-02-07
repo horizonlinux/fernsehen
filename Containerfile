@@ -31,6 +31,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
         plasma-bigscreen-wayland \
         kde-connect \
         kde-connect-libs \
+        plasma-nm \
         plasma-nano \
         plasma-settings \
         plasma-setup \
@@ -42,7 +43,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
         kde-i18n* \
         langpacks-*; \
     do \
-        dnf5 -y install $fernsehen -x aurora-logos; \
+        dnf5 -y install $fernsehen -x plasma-welcome; \
     done && unset -v fernsehen && \
     for debloat in \
         firefox \
