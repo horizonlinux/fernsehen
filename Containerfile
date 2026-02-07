@@ -41,6 +41,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
         kde-connect-libs \
         plasma-nano \
         plasma-settings \
+        plasma-setup \
         kcm_* \
         konsole \
         plasma-login-manager \
