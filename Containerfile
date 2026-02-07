@@ -23,14 +23,6 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
     dnf5 -y install dnf5-plugins && \
-    for copr in \
-        ublue-os/staging \
-        ublue-os/packages \
-    do \
-        echo "Enabling copr: $copr"; \
-        dnf5 -y copr enable $copr; \
-        dnf5 -y config-manager setopt copr:copr.fedorainfracloud.org:${copr////:}.priority=98 ;\
-    done && unset -v copr && \
     for fernsehen in \
         dbus \
         dbus-daemon \
