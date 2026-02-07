@@ -23,8 +23,10 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
     dnf5 -y install dnf5-plugins && \
-    for fernsehen in \
+    dnf5 -y install  \
         dbus \
+        kwalletmanager \
+        plasma-systemmonitor \
         dbus-daemon \
         generic-logos \
         plasma-bigscreen \
@@ -41,17 +43,19 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
         angelfish \
         kde-l10n* \
         kde-i18n* \
-        langpacks-*; \
-    do \
-        dnf5 -y install $fernsehen -x plasma-welcome; \
-    done && unset -v fernsehen && \
-    for debloat in \
+        langpacks-* && \
+        dnf5 -y remove \
         firefox \
         htop \
-        nvtop; \
-    do \
-        dnf5 -y remove $debloat; \
-    done && unset -v debloat
+        discover \
+        krfb \
+        firewall-config \
+        kjournald \
+        kdebugsettings \
+        kinfocenter \
+        plasma-drkonqi \
+        kde-partitionmanager \
+        nvtop
     
 ### LINTING
 ## Verify final image and contents are correct.
