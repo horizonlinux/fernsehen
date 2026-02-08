@@ -31,6 +31,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
         plasma-bigscreen-wayland \
         kde-connect \
         kde-connect-libs \
+        plasma-milou \
         plasma-nm \
         plasma-nano \
         plasma-settings \
