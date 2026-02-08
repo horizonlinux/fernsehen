@@ -36,6 +36,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
         plasma-nano \
         plasma-settings \
         plasma-setup \
+        plasma-pa \
         kcm_* \
         konsole \
         plasma-login-manager \
